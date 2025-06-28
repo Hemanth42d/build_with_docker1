@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title><%= name %>'s Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    class="bg-gradient-to-br from-blue-100 to-indigo-100 min-h-screen flex items-center justify-center"
+  >
+    <div
+      class="bg-white shadow-2xl rounded-2xl p-8 w-full max-w-lg transition-all"
+    >
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">
+        User Profile
+      </h2>
+      <div id="viewMode" class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-600">Name</label>
+          <div class="bg-gray-100 p-3 rounded-md text-gray-800 font-medium">
+            <%= name %>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-600">Email</label>
+          <div class="bg-gray-100 p-3 rounded-md text-gray-800">
+            <%= email %>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-600"
+            >Interests</label
+          >
+          <div class="flex flex-wrap gap-2 mt-2">
+            <% interests.forEach(function(interest) { %>
+            <span
+              class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium"
+              ><%= interest %></span
+            >
+            <% }) %>
+          </div>
+        </div>
+
+        <button
+          onclick="toggleEdit(true)"
+          class="mt-6 w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-lg transition"
+        >
+          Edit
+        </button>
+      </div>
+
+      <form
+        id="editMode"
+        class="space-y-4 hidden"
+        method="POST"
+        action="/profile/update"
+      >
+        <div>
+          <label class="block text-sm font-medium text-gray-600">Name</label>
+          <input
+            type="text"
+            name="name"
+            value="<%= name %>"
+            required
+            class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-600">Email</label>
+          <input
+            type="email"
+            name="email"
+            value="<%= email %>"
+            required
+            class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-600"
+            >Interests (comma-separated)</label
+          >
+          <input
+            type="text"
+            name="interests"
+            value="<%= interests.join(', ') %>"
+            class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+
+        <div class="flex justify-between gap-4 mt-6">
+          <button
+            type="button"
+            onclick="toggleEdit(false)"
+            class="w-full bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 rounded-lg transition"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 rounded-lg transition"
+          >
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      function toggleEdit(showEdit) {
+        document
+          .getElementById("viewMode")
+          .classList.toggle("hidden", showEdit);
+        document
+          .getElementById("editMode")
+          .classList.toggle("hidden", !showEdit);
+      }
+    </script>
+  </body>
+</html>
