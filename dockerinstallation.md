@@ -1,4 +1,4 @@
-#Installation of docker on Linux
+# Installation of docker on Linux
 
 Installation of docker can be done by executing the Docker's offical instllation script maintained by docker inc.
 
