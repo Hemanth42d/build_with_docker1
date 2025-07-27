@@ -1,6 +1,6 @@
 # Build Docker Image (Node js application)
 
-Dcoker installation (refer to dockerinstallation.txt file in the repo)
+[Dcoker installation](./dockerinstallation.md)
 
 In this repository I am going to build a docker image from a simple node js application which contains : </br>
 
