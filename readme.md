@@ -1,5 +1,7 @@
 # Build Docker Image (Node js application)
 
+Dcoker installation (refer to dockerinstallation.txt file in the repo)
+
 In this repository I am going to build a docker image from a simple node js application which contains : </br>
 
 - profile.ejs --> simple ejs file for updating user profile and used as rendering page
@@ -19,3 +21,4 @@ It helps me in building the concepts of basic devOps knowledge of
   - Launched an Ubuntu EC2 instance
   - Installed Docker + Docker Compose
   - Pulled images from ECR and used Docker Compose to start the multi-container app
+
