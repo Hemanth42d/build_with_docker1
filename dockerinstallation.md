@@ -21,22 +21,20 @@ Explanation:
 
 ## What Gets Installed (via get.docker.com)
 1. Docker Engine (Full Docker daemon)
-dockerd: The Docker daemon — responsible for running containers.
-
-Configured as a systemd service (docker.service).
+    dockerd: The Docker daemon — responsible for running containers.
+    Configured as a systemd service (docker.service).
 
 2. Docker CLI
-The docker command — the CLI tool you use to interact with the Docker daemon.
+    The docker command — the CLI tool you use to interact with the Docker daemon.
 
 3. Supporting Components
-containerd: A runtime used by Docker to manage containers.
-
-runc: The actual container runtime (low-level process executor).
-
-docker-init: A minimal init system used in containers (optional).
-
-Systemd service files (docker.service, containerd.service).
+    containerd: A runtime used by Docker to manage containers.
+    runc: The actual container runtime (low-level process executor).
+    docker-init: A minimal init system used in containers (optional).
+    Systemd service files (docker.service, containerd.service).
 
 4. Docker Group
 A docker group is created (if it doesn't already exist) so that non-root users can run Docker (if added to the group).
+
+
 
